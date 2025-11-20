@@ -6,7 +6,7 @@ from tkinter import filedialog
  
 root = tk.Tk()
 root.withdraw()
-path = filedialog.askopenfilename(title = "Select your dataset", filetypes = [('Excel',"*.xlsx *.xls")])
+path = filedialog.askopenfilename(title = 'Select your dataset', filetypes = [('Excel','*.xlsx *.xls')])
 
 df = pd.read_excel(path)
 
@@ -21,4 +21,5 @@ y = df['ROE']
 x = df[ratios]
 
 x = stats.add_constant(x)
+
 model = stats.OLS(y, x).fit()
